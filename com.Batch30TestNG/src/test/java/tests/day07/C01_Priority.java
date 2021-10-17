@@ -15,32 +15,41 @@ public class C01_Priority {
     //  2. techproeducation ana sayfaya
     //  3. facebook ana sayfa gitsin
     // ve sayfa titlerini yazdirsin.
+
+    /*
+    Priority yazmadigimiz methodlarin priority=0 kabul eder.
+    Priority olmayanlari kendi icinde siraliyip, olanlarin priority degerlerine uygun siralamada calistirir.
+     */
     WebDriver driver;
+
     @BeforeMethod
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
-    @Test (priority = 2)
-    public void amazonTest01(){
+
+    @Test(priority = 2)
+    public void amazonTest01() {
         driver.get("https://www.amazon.com/");
         System.out.println(driver.getTitle());
     }
-    @Test (priority = 3)
-    public void techproeducationTest01(){
+
+    @Test(priority = 3)
+    public void techproeducationTest01() {
         driver.get("https://www.techproeducation.com/");
         System.out.println(driver.getTitle());
     }
-    @Test (priority = 1)
-    public void facebookTest01(){
+
+    @Test(priority = 1)
+    public void facebookTest01() {
         driver.get("https://www.facebook.com/");
         System.out.println(driver.getTitle());
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         driver.close();
     }
 }
